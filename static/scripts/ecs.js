@@ -29,9 +29,14 @@ for(let i = 0, amount = 1000; i < amount; i++) {
 
 
 // e.update(e.world);
+var stats = new Stats();
+stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+document.body.appendChild(stats.dom);
 
 function animate() {
+    stats.begin();
     e.update(e.world);
+    stats.end();
     requestAnimationFrame(animate)
 }
 animate();
