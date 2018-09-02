@@ -9,10 +9,6 @@ worldMixin(ecs);
 
 let e = new ecs();
 
-e.systems.push(renderSystem);
-e.systems.push(drawAgent);
-e.systems.push(move);
-
 let gameObject = e.createEntity();
 for(let i = 0, amount = 1000; i < amount; i++) {
     let g = e.createEntity();
@@ -35,7 +31,10 @@ document.body.appendChild(stats.dom);
 
 function animate() {
     stats.begin();
-    e.update(e.world);
+    renderSystem(e);
+    drawAgent(e);
+    move(e);
+    // e.update(e.world);
     stats.end();
     requestAnimationFrame(animate)
 }

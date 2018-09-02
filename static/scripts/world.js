@@ -2,6 +2,7 @@ function worldMixin(ecs) {
 
     ecs.prototype.initWorld = function() {
         // foundamental
+        this.registComponent('entity');
         this.registComponent('ctx');
         this.registComponent('pos');
         this.registComponent('matrix');
@@ -17,16 +18,16 @@ function worldMixin(ecs) {
 
     ecs.prototype.systems = [];
 
-    ecs.prototype.update = function(e) {
-        if(e) {
-            for (let sys of this.systems) {
-                sys(e);
-            }
-            for (let sub of e.transform.child) {
-                this.update(sub.entity);
-            }
+    // ecs.prototype.update = function(e) {
+    //     if(e) {
+    //         for (let sys of this.systems) {
+    //             sys(e);
+    //         }
+    //         for (let sub of e.transform.child) {
+    //             this.update(sub.entity);
+    //         }
 
-        }
-    }
+    //     }
+    // }
 
 }

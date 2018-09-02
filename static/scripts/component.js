@@ -5,6 +5,9 @@ function componentMixin(ecs) {
     ecs.prototype.registComponent = function(uniform) {
         this.components[uniform] = {};
     }
+    ecs.prototype.getAllEntites = function () {
+        return this.components['entity'];
+    }
 }
 
 class vector2 {

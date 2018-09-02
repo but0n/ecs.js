@@ -17,6 +17,7 @@ function entityMixin(ecs) {
         entity.pos = new vector2();
         entity.matrix = new Matrix4();
         entity.transform = new transform(entity);
+        entity.entity = entity;
         return entity;
 
     }
